@@ -188,3 +188,43 @@ dots.forEach((dot, i) => {
 });
 
 startAutoPlay();
+
+// --- World fashion week slider ---
+const worldFashionSwiper = new Swiper('.wf-swiper', {
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 20,
+    slidesPerView: 1.2,
+    speed: 600,
+    breakpoints: {
+        480: {
+            slidesPerView: 2
+        },
+        768: {
+            slidesPerView: 3
+        },
+        1200: {
+            slidesPerView: 4
+        }
+    },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: true,
+        pauseOnMouseEnter: true
+    },
+    keyboard: {
+        enabled: true,
+        onlyInViewport: true
+    },
+    a11y: {
+        enabled: true
+    },
+    navigation: {
+        nextEl: '.wf-button-next',
+        prevEl: '.wf-button-prev'
+    },
+    pagination: {
+        el: '.wf-pagination',
+        clickable: true
+    }
+});
