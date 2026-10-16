@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-        <header>
+            <!-- HEADER SECTION START -->
+    <header>
         <div class="container">
             <h1 class="logo">Fashion <span>404</span></h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#show">Show</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#community">Community</a></li>
+            <nav aria-label="Main navigation">
+                <ul class="primary-menu">
+                    <li><a href="#home" aria-controls="primary-mega-menu" aria-expanded="false">Home</a></li>
+                    <li><a href="#show" aria-controls="primary-mega-menu" aria-expanded="false">Show</a></li>
+                    <li><a href="#gallery" aria-controls="primary-mega-menu" aria-expanded="false">Gallery</a></li>
+                    <li><a href="#community" aria-controls="primary-mega-menu" aria-expanded="false">Community</a></li>
                 </ul>
             </nav>
             <button id="theme-toggle" aria-label="Toggle Theme">
@@ -24,12 +25,48 @@
                 <i class="fas fa-sun"></i>
             </button>
         </div>
+        <div class="mega-menu" id="primary-mega-menu" aria-hidden="true">
+            <div class="mega-menu__clip">
+                <div class="mega-menu__inner">
+                    <span class="mega-menu__spacer" aria-hidden="true"></span>
+                    <div class="mega-menu__columns">
+                        <div class="mega-menu__column">
+                            <a href="#new-arrivals" tabindex="-1">New Arrivals</a>
+                            <a href="#brand-story" tabindex="-1">Brand Story</a>
+                            <a href="#style-guide" tabindex="-1">Style Guide</a>
+                            <a href="#store-info" tabindex="-1">Store Info</a>
+                        </div>
+                        <div class="mega-menu__column">
+                            <a href="#runway" tabindex="-1">Runway</a>
+                            <a href="#lookbook" tabindex="-1">Lookbook</a>
+                            <a href="#seasonal-edit" tabindex="-1">Seasonal Edit</a>
+                            <a href="#designer-notes" tabindex="-1">Designer Notes</a>
+                        </div>
+                        <div class="mega-menu__column">
+                            <a href="#campaigns" tabindex="-1">Campaigns</a>
+                            <a href="#street-style" tabindex="-1">Street Style</a>
+                            <a href="#editorial" tabindex="-1">Editorial</a>
+                            <a href="#behind-the-scenes" tabindex="-1">Behind the Scenes</a>
+                        </div>
+                        <div class="mega-menu__column">
+                            <a href="#latest-news" tabindex="-1">Latest News</a>
+                            <a href="#events" tabindex="-1">Events</a>
+                            <a href="#members" tabindex="-1">Members</a>
+                            <a href="#contact" tabindex="-1">Contact</a>
+                        </div>
+                    </div>
+                    <span class="mega-menu__spacer" aria-hidden="true"></span>
+                </div>
+            </div>
+        </div>
     </header>
+    <!-- HEADER SECTION END -->
 
-
-        <main>
-        <!-- 메인 비주얼 슬라이더 배너 -->
+    <!-- MAIN CONTENT START -->
+    <main>
+        <!-- 메인 비주얼 슬라이더 배너 (VISUAL BANNER) -->
         <section class="visual-banner">
+
             <div class="slider-container">
                 <div class="slider-wrapper">
                     <!-- 슬라이드 1 -->
@@ -64,13 +101,12 @@
                     <span class="dot"></span>
                 </div>
             </div>
-        </section>
+                <!-- 비주얼 배너 끝 -->
 
-        <section id="events">
-
-
+        <!-- 이벤트 섹션 (EVENTS SECTION) START -->
         <section id="events">
             <div class="container">
+
                 <div class="card-grid">
                     <div class="card">
                         <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=500');"></div>
@@ -98,10 +134,14 @@
                     </div>
                 </div>
             </div>
-        </section>
+                </section>
+        <!-- 이벤트 섹션 END -->
     </main>
+    <!-- MAIN CONTENT END -->
 
-        <footer>
+    <!-- FOOTER SECTION START -->
+    <footer>
+
         <div class="container">
             <div class="footer-content">
                 <h2 class="logo">Fashion <span>404</span></h2>
@@ -115,6 +155,8 @@
             <p class="copyright">&copy; 2024 Fashion 404. All rights reserved.</p>
         </div>
     </footer>
+    <!-- FOOTER SECTION END -->
+
     <script src="script.js"></script>
 </body>
 

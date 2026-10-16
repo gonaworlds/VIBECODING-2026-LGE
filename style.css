@@ -120,6 +120,105 @@ nav ul li a:hover {
     color: var(--point-hotpink);
 }
 
+/* Desktop mega menu */
+@media (min-width: 1024px) {
+    header .container {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr) 44px;
+        column-gap: 30px;
+    }
+
+    header .logo {
+        width: 220px;
+        white-space: nowrap;
+        transition: color 0.2s ease;
+    }
+
+    nav {
+        min-width: 0;
+        margin: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    nav.is-scroll-hidden {
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
+    }
+
+    nav .primary-menu {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav .primary-menu a,
+    .mega-menu__column a {
+        color: #bbbbbb;
+        transition: color 0.2s ease;
+    }
+
+    nav .primary-menu a:hover,
+    nav .primary-menu a.is-current,
+    .mega-menu__column a:hover,
+    .mega-menu__column a:focus-visible,
+    .mega-menu__column.is-current a {
+        color: #ffffff;
+    }
+
+    .mega-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: grid;
+        grid-template-rows: 0fr;
+        width: 100%;
+        background: #1a1a2e;
+        visibility: hidden;
+        transition: grid-template-rows 0.3s ease-out, visibility 0s linear 0.3s;
+    }
+
+    header.mega-menu-open .mega-menu {
+        grid-template-rows: 1fr;
+        visibility: visible;
+        transition: grid-template-rows 0.3s ease-out, visibility 0s;
+    }
+
+    .mega-menu__clip {
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .mega-menu__inner {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr) 44px;
+        column-gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 24px 20px 28px;
+    }
+
+    .mega-menu__columns {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .mega-menu__column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .mega-menu__column a {
+        font-size: 0.9rem;
+    }
+}
+
 /* Theme Toggle Component */
 #theme-toggle {
     background: var(--bg-card);
@@ -359,5 +458,11 @@ footer {
 
     #theme-toggle {
         margin-left: auto;
+    }
+}
+
+@media (max-width: 1023px) {
+    .mega-menu {
+        display: none;
     }
 }
