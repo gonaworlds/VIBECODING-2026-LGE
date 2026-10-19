@@ -1,0 +1,88 @@
+/* Basic Reset and Layout for Obsidian-like appearance */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e; /* Dark background for IDE feel */
+    color: #cccccc;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #252526;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3c3c3c;
+}
+
+#editor-container {
+    display: flex;
+    flex: 1; /* Takes up remaining vertical space */
+    overflow: hidden; /* Prevents double scrollbars */
+}
+
+#editor-pane, #preview-pane {
+    flex: 1; /* Each pane takes equal width */
+    padding: 20px;
+    overflow-y: auto; /* Allows scrolling within panes */
+    border-right: 1px solid #3c3c3c;
+}
+
+#editor-pane {
+    border-right: 1px solid #3c3c3c;
+}
+
+#markdown-input {
+    width: 100%;
+    height: 100%;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    border: none;
+    resize: none; /* Disable manual resizing */
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+/* Styling for the Preview Pane (Basic Markdown Rendering) */
+#preview-output {
+    padding: 0;
+}
+
+#preview-output h1 { color: #a9b7c6; border-bottom: 1px solid #444; padding-bottom: 5px; }
+#preview-output h2 { color: #c4d4e8; border-bottom: 1px solid #444; padding-bottom: 3px; }
+#preview-output pre { background-color: #2d2d30; padding: 10px; border-radius: 5px; overflow-x: auto; }
+#preview-output code { color: #9cdcfe; }
+#preview-output a { color: #569cd6; }
+
+/* File Controls Styling */
+#file-controls button, #file-controls input {
+    padding: 8px 15px;
+    margin-left: 10px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#file-controls button:hover {
+    background-color: #005fa3;
+}
+
+#file-input {
+    /* Hide default file input styling */
+    display: none; 
+}
+/* A small trick to make the button trigger the hidden input */
+#file-controls label[for="file-input"] {
+    cursor: pointer;
+    background-color: #3c3c3c;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+}

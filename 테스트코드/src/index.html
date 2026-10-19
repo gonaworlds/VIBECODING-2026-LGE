@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion 404 | Designer Portfolio</title>
+    <style>
+        /* 전역 설정 및 변수 */
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-color: #ffffff;
+            --point-pink: #ff1493;
+            --point-blue: #00008b;
+            --gray-text: #aaaaaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        /* 1. 상단영역 (Header) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 10%;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 10, 10, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .logo span.pink { color: var(--point-pink); }
+        .logo span.blue { color: var(--point-blue); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul li a:hover {
+            color: var(--point-pink);
+        }
+
+        /* 2. 메인영역 (Main/Event Cards) */
+        main {
+            padding: 5rem 10%;
+            min-height: 80vh;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .section-title em {
+            font-style: normal;
+            color: var(--point-pink);
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--point-pink);
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 300px;
+            background-color: #333; /* 이미지 없을 때 대체색 */
+            background-size: cover;
+            background-position: center;
+            transition: 0.4s;
+        }
+
+        .card:hover .card-img {
+            filter: brightness(1.2);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            margin-bottom: 15px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            border-radius: 5px;
+            background-color: var(--point-blue);
+            color: white;
+            font-weight: bold;
+        }
+
+        /* 3. 하단영역 (Footer) */
+        footer {
+            background-color: #050505;
+            padding: 4rem 10% 2rem;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .footer-info {
+            font-size: 0.85rem;
+            color: var(--gray-text);
+            line-height: 2;
+        }
+
+        .footer-info span {
+            color: var(--point-pink);
+        }
+
+        /* 반응형 설정 */
+        @media (max-width: 992px) {
+            .event-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            header { flex-direction: column; gap: 20px; }
+            .event-grid { grid-template-columns: 1fr; }
+            nav ul { gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 상단영역 -->
+    <header>
+        <div class="logo">
+            Fashion <span class="pink">4</span><span class="blue">0</span><span class="pink">4</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Show</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 메인영역 -->
+    <main>
+        <h2 class="section-title">Current <em>Events</em></h2>
+        
+        <div class="event-grid">
+            <!-- 카드 1 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1539109136881-3609766fd48a?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-content">
+                    <span class="card-tag">NEW COLLECTION</span>
+                    <h3>Neon Noir 2024</h3>
+                    <p>어둠 속에서 피어나는 강렬한 색채의 조화, 네온 누아르 컬렉션을 공개합니다.</p>
+                </div>
+            </div>
+
+            <!-- 카드 2 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f35156ff8f6?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-content">
+                    <span class="card-tag">EXHIBITION</span>
+                    <h3>Digital Fabric</h3>
+                    <p>물성을 넘어선 가상 세계의 패션, 디지털 패브릭 전시회에 초대합니다.</p>
+                </div>
+            </div>
+
+            <!-- 카드 3 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="card-content">
+                    <span class="card-tag">COLLABORATION</span>
+                    <h3>Urban Edge x 404</h3>
+                    <p>도시의 차가운 공기와 핫핑크의 열정이 만난 특별 콜라보레이션.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 하단영역 -->
+    <footer>
+        <div class="footer-logo">
+            Fashion <span style="color: var(--point-pink);">404</span>
+        </div>
+        <div class="footer-info">
+            <p>DESIGNED BY <span>FASHION 404 STUDIO</span></p>
+            <p>서울특별시 강남구 패션거리 404-1 | TEL: 02-1234-5678</p>
+            <p>&copy; 2024 Fashion 404. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
