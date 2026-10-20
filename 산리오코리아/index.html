@@ -59,12 +59,172 @@
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic&display=swap");
       @import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css");
 
+      /* 전체 루트 설정 */
+      html {
+        /* rem단위를 위한 Root 글자크기 설정 */
+        font-size: 10px;
+        /* 왜 10px인가? rem단위에 계산이 용이함! */
+      }
+
       html,
       body {
         /* 웹폰트체 지정 (콤마는 우선순위) */
         font-family: Montserrat, NanumBarunGothic, Dotum, sans-serif;
+        font-style: normal;
+      }
+      /* 공통요소 초기화 */
+      /* html, body, h1~h6, p, ul, ol, li, figure, blockquote, dl, dd 초기화 */
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
       }
 
+      /* 리스트 스타일 초기화 */
+      ul,
+      ol {
+        list-style: none;
+      }
+
+      /* 블록 요소 display 초기화 (HTML5 요소 호환) */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+
+      /* 링크 및 버튼 스타일 기본화 */
+      a {
+        background: transparent;
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        background: none;
+        border: none;
+        padding: 0;
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+      }
+
+      /* strong, b, em, i 기본화 */
+      strong,
+      b {
+        font-weight: bold;
+      }
+      em,
+      i {
+        font-style: italic;
+      }
+
+      /* 테이블 초기화 */
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      /* 이미지, 비디오 반응형 (width 설정) */
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+      }
+
+      /* 박스 사이징 */
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
 
       /* top-inner: 헤더 영역의 내부 레이아웃 설정 */
       .top-inner {
@@ -95,19 +255,22 @@
       .menu-list a {
         text-decoration: none; /* 밑줄 제거 */
         color: #222; /* 글자색 */
-        font-size: 1.1rem; /* 글자 크기 */
+        font-size: 1.6rem; /* 글자 크기 */
         font-weight: 600; /* 글자 두께 */
         transition: color 0.2s; /* 색상 변경 트랜지션 효과 */
+        text-transform: uppercase; /* 대문자 변환 */
       }
       /* menu-list a:hover: 메뉴 링크에 마우스 오버시 색상 변화 */
       .menu-list a:hover {
         color: #f15183; /* 핑크색으로 변경 */
       }
-      /* banner-area: 인라인 스타일을 이동 (패딩) */
+      /* banner-area: 배너영역 스타일 */
       .banner-area {
         position: relative;
         padding: 80px;
+        padding-bottom: 160px;
         background: url("./images/main_visual_bg.jpg") repeat 0 0/50px;
+        /* height: 100vh; */
       }
       /* main-visual-figure: 인라인 스타일을 이동 (flex 가운데 정렬) */
       .main-visual-figure {
@@ -124,12 +287,105 @@
       }
       /* SNS 버튼 영역 스타일: 상단 우측에 세로 정렬로 배치 */
       .sns {
-        width: 24px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 60px;
+        text-align: right;
+        gap: 10px;
         display: flex; /* Flexbox로 배치 */
         flex-direction: column; /* 세로 방향 정렬 */
         position: absolute; /* 절대 위치 지정 */
         top: 50px; /* 위에서 50px */
         right: 50px; /* 오른쪽에서 50px */
+      }
+      .sns a img {
+        width: 40px;
+      }
+
+      /* 스크롤 유도 마우스 */
+      .scroll_btn {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        translate: -50%;
+        width: 79px;
+        height: 70px;
+        /* outline: 1px solid blue; */
+      }
+
+      /* 마우스 글자박스 */
+      .scroll_btn p {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1rem;
+        /* outline: 1px solid red; */
+      }
+
+      /* 움직일 대상 마우스 */
+      .scroll_btn .mouse {
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+        top: 0px;
+        display: block;
+        width: 26px;
+        height: 36px;
+        border: 2px solid #222;
+        background: #fff;
+        border-radius: 23px;
+        /* 애니메이션 호출 : 이시이지반방마 
+          이름 시간 이징 지연시간 반복 방향 마지막상태*/
+        animation: mouse-ani 2s ease infinite;
+      }
+      /* 마우스 애니메이션 키프레임 */
+      @keyframes mouse-ani {
+        /* 시작값 from은 처음셋팅값과 같으면 생략가능 */
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(15px);
+        }
+      }
+
+      /* 움직일 대상 마우스휠 */
+      .scroll_btn .mouse span {
+        position: absolute;
+        top: 29%;
+        left: 50%;
+        translate: -50% -50%;
+        width: 5px;
+        height: 5px;
+        background: #222;
+        border-radius: 50%;
+        /* 투명도(opacity: 0투명, 1보임, 0.몇 반투명) */
+        opacity: 0;
+        /* 마우스휠 키프레임 호출: 이시이지반방마 */
+        animation: mouse-dot-ani 2.5s linear infinite;
+      }
+
+      @keyframes mouse-dot-ani {
+        0% {
+          opacity: 1;
+          top: 29%;
+        }
+        15% {
+          opacity: 1;
+          top: 50%;
+        }
+        50% {
+          opacity: 0;
+          top: 50%;
+        }
+        100% {
+          opacity: 0;
+          top: 29%;
+        }
       }
     </style>
   </head>
@@ -180,16 +436,7 @@
           <!-- ctrl+shift+Enter 계행열기 / ctrl+Enter 계행닫기 -->
           <!-- SNS이동버튼박스 -->
           <!-- static만 제외하고 부모값 줄 수 있음 -->
-          <div
-            class="sns"
-            style="
-              display: flex;
-              flex-direction: column;
-              position: absolute;
-              top: 50px;
-              right: 50px;
-            "
-          >
+          <div class="sns">
             <a href="https://www.instagram.com/sanrio_kr/" target="_blank"
               ><img src="./images/i_ins_pc_v3.png" alt="instargram"
             /></a>
@@ -205,22 +452,34 @@
             <p>scroll down</p>
           </div>
         </section>
+
         <!-- 2-2. 캐릭터영역 -->
         <section class="character-area">
-          <!-- 캐릭터영역 콘텐츠는 여기서 작성하세요 -->
+          <!-- [대괄호]는 속성이다.
+          .tit-box>h2.part-tit+.btn-box>a.btn-view[href="#"] -->
+          <div class="tit-box">
+            <h2 class="part-tit"></h2>
+            <div class="btn-box">
+              <a href="#" class="btn-view"></a>
+            </div>
+          </div>
         </section>
+
         <!-- 2-3. 컴퍼니영역 -->
         <section class="company-area">
           <!-- 컴퍼니영역 콘텐츠는 여기서 작성하세요 -->
         </section>
+
         <!-- 2-4. 리쿠르트영역 -->
         <section class="recruit-area">
           <!-- 리쿠르트영역 콘텐츠는 여기서 작성하세요 -->
         </section>
+
         <!-- 2-5. 플레이스영역 -->
         <section class="place-area">
           <!-- 플레이스영역 콘텐츠는 여기서 작성하세요 -->
         </section>
+
         <!-- 2-6. 컨텍어스영역 -->
         <section class="contactus-area">
           <!-- 컨텍어스영역 콘텐츠는 여기서 작성하세요 -->
