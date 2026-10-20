@@ -387,6 +387,43 @@
           top: 29%;
         }
       }
+
+      /* 캐릭터박스 */
+      .character-area {
+        height: 100vh;
+      }
+
+      /* 공통타이틀박스 */
+      .tit-box {
+        max-width: 1200px;
+        margin: 0 auto;
+        outline: 3px dashed blue;
+      }
+
+      /* 타이틀파트 */
+      .tit-box .part-tit {
+        text-align: center;
+        padding: 40px 0;
+        font-size: 5rem;
+        font-weight: normal;
+      }
+
+      /* 타이틀박스 하위 버튼박스 */
+      .btn-box {
+        text-align: center;
+        padding: 20px 0;
+      }
+      
+      .btn-view {
+        text-decoration: none;
+        color: #222;
+        font-size: 2rem;
+        display: inline-block;
+        margin: 0 auto;
+        border: 1px solid #222;
+        border-radius: 30px;
+        padding: 16px 80px;
+      }
     </style>
   </head>
   <body>
@@ -458,9 +495,9 @@
           <!-- [대괄호]는 속성이다.
           .tit-box>h2.part-tit+.btn-box>a.btn-view[href="#"] -->
           <div class="tit-box">
-            <h2 class="part-tit"></h2>
+            <h2 class="part-tit">character</h2>
             <div class="btn-box">
-              <a href="#" class="btn-view"></a>
+              <a href="#" class="btn-view">view more</a>
             </div>
           </div>
         </section>
