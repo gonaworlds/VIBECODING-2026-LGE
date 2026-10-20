@@ -52,8 +52,22 @@
     <style>
       /* font-family: 전체 폰트 기본값 설정 */
 
-      /* header-inner: 헤더 영역의 내부 레이아웃 설정 */
-      .header-inner {
+      /* 웹폰트 로딩하기(CDN방식)
+        CDN은 Content Delivery Network 즉, 네트워크 망으로 컨텐트를 배달시켜 쓰는 방식 */
+
+      /* Montserrat, Nanum Gothic 폰트 임베드 */
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic&display=swap");
+      @import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css");
+
+      html,
+      body {
+        /* 웹폰트체 지정 (콤마는 우선순위) */
+        font-family: Montserrat, NanumBarunGothic, Dotum, sans-serif;
+      }
+
+
+      /* top-inner: 헤더 영역의 내부 레이아웃 설정 */
+      .top-inner {
         max-width: 1440px; /* 최대 너비 1440px로 제한 */
         margin: 0 auto; /* 중앙 정렬 */
         display: flex; /* Flexbox를 이용한 가로 배치 */
@@ -123,9 +137,9 @@
     <!-- wrapper 영역: 전체 레이아웃을 감싸는 main 시멘틱 요소로 변경 -->
     <main class="wrapper">
       <!-- 상단영역 -->
-      <header class="top-area">
-        <!-- header-inner: 헤더 내부 레이아웃 네이밍 유지하고 nav로 변경 불가, 시멘틱하게 <div>를 <section>으로 변경 -->
-        <section class="header-inner">
+      <top class="top-area">
+        <!-- top-inner: 헤더 내부 레이아웃 네이밍 유지하고 nav로 변경 불가, 시멘틱하게 <div>를 <section>으로 변경 -->
+        <section class="top-inner">
           <!-- logo-box: 로고 이미지를 감싸는 부분을 <div>에서 <figure>로 시멘틱하게 변경 -->
           <figure class="logo-box">
             <!-- 로고 이미지는 아래 src에 실제 경로로 교체하세요 -->
@@ -144,7 +158,7 @@
             </ul>
           </nav>
         </section>
-      </header>
+      </top>
       <!-- 메인영역 -->
       <!-- 인라인 스타일을 html style 인라인 영역으로 이동, 클래스/태그 선택자로 변경 -->
       <main class="main-area">
@@ -187,8 +201,7 @@
           </div>
           <!-- 스크롤 유도 애니박스 -->
           <div class="scroll_btn">
-            <span class="mouse"><span>
-                 </span></span>
+            <span class="mouse"><span> </span></span>
             <p>scroll down</p>
           </div>
         </section>
