@@ -1,153 +1,223 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>산리오 코리아</title>
     <!-- 파비콘 이미지가 모든 주요 환경(브라우저, 모바일)에서 정상적으로 적용될 수 있도록 favicon.ico와 다양한 사이즈 및 포맷을 추가합니다. -->
     <!-- 기본 favicon.ico 지정 (대부분의 브라우저에서 지원) -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <!-- PNG 포맷의 다양한 파비콘 사이즈 지정 -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="./images/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="./images/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="./images/android-chrome-512x512.png">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="./images/favicon-48x48.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./images/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="./images/android-chrome-512x512.png"
+    />
     <!-- 애플 터치 아이콘(아이폰, 아이패드 홈화면) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="http://sanriokorea.co.kr/favicon.png.ico">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/apple-touch-icon.png"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="http://sanriokorea.co.kr/favicon.png.ico"
+    />
     <!-- 인터널 스타일시트(internal style sheet) -->
     <style>
-        /* font-family: 전체 폰트 기본값 설정 */
-        
-        /* header-inner: 헤더 영역의 내부 레이아웃 설정 */
-        .header-inner {
-            max-width: 1440px;           /* 최대 너비 1440px로 제한 */
-            margin: 0 auto;              /* 중앙 정렬 */
-            display: flex;               /* Flexbox를 이용한 가로 배치 */
-            justify-content: space-between; /* 좌우 끝에 요소 배치 */
-            align-items: center;         /* 수직 중앙 정렬 */
-            height: 80px;                /* 높이 80px */
-            padding: 0 24px;             /* 좌우 패딩 24px */
-        }
+      /* font-family: 전체 폰트 기본값 설정 */
 
-        .logo-box {
-            flex: 0 0 auto; /* 크기가 고정된 flex 아이템 */
-        }
-        .logo-box img {
-            height: 56px; /* 로고 이미지 높이 고정 */
-        }
-        /* menu-list ul: 메뉴 리스트 스타일 */
-        .menu-list ul {
-            list-style: none;            /* 기본 리스트 스타일 제거 */
-            display: flex;               /* 아이템을 가로로 배치 */
-            gap: 36px;                   /* 메뉴 간 간격 36px */
-            margin: 0;                   /* 기본 마진 제거 */
-            padding: 0;                  /* 기본 패딩 제거 */
-        }
-        /* menu-list a: 메뉴 링크 스타일 */
-        .menu-list a {
-            text-decoration: none;       /* 밑줄 제거 */
-            color: #222;                 /* 글자색 */
-            font-size: 1.1rem;           /* 글자 크기 */
-            font-weight: 600;            /* 글자 두께 */
-            transition: color 0.2s;      /* 색상 변경 트랜지션 효과 */
-        }
-        /* menu-list a:hover: 메뉴 링크에 마우스 오버시 색상 변화 */
-        .menu-list a:hover {
-            color: #f15183;              /* 핑크색으로 변경 */
-        }
-        /* main-area: 인라인 스타일을 이동 (배경) */
-        .main-area {
-            background: url('./images/main_visual_bg.jpg') repeat 0 0/50px;
-        }
-        /* banner-area: 인라인 스타일을 이동 (패딩) */
-        .banner-area {
-            padding: 80px;
-        }
-        /* main-visual-figure: 인라인 스타일을 이동 (flex 가운데 정렬) */
-        .main-visual-figure {
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            /* align-items: center; */
-        }
-        /* main-visual-img: 인라인 스타일을 이동 (블록, 사이즈) */
-        .main-visual-img {
-            display: block;
-            width: 984px;
-            max-width: 100%;
-        }
+      /* header-inner: 헤더 영역의 내부 레이아웃 설정 */
+      .header-inner {
+        max-width: 1440px; /* 최대 너비 1440px로 제한 */
+        margin: 0 auto; /* 중앙 정렬 */
+        display: flex; /* Flexbox를 이용한 가로 배치 */
+        justify-content: space-between; /* 좌우 끝에 요소 배치 */
+        align-items: center; /* 수직 중앙 정렬 */
+        height: 80px; /* 높이 80px */
+        padding: 0 24px; /* 좌우 패딩 24px */
+      }
+
+      .logo-box {
+        flex: 0 0 auto; /* 크기가 고정된 flex 아이템 */
+      }
+      .logo-box img {
+        height: 56px; /* 로고 이미지 높이 고정 */
+      }
+      /* menu-list ul: 메뉴 리스트 스타일 */
+      .menu-list ul {
+        list-style: none; /* 기본 리스트 스타일 제거 */
+        display: flex; /* 아이템을 가로로 배치 */
+        gap: 36px; /* 메뉴 간 간격 36px */
+        margin: 0; /* 기본 마진 제거 */
+        padding: 0; /* 기본 패딩 제거 */
+      }
+      /* menu-list a: 메뉴 링크 스타일 */
+      .menu-list a {
+        text-decoration: none; /* 밑줄 제거 */
+        color: #222; /* 글자색 */
+        font-size: 1.1rem; /* 글자 크기 */
+        font-weight: 600; /* 글자 두께 */
+        transition: color 0.2s; /* 색상 변경 트랜지션 효과 */
+      }
+      /* menu-list a:hover: 메뉴 링크에 마우스 오버시 색상 변화 */
+      .menu-list a:hover {
+        color: #f15183; /* 핑크색으로 변경 */
+      }
+      /* banner-area: 인라인 스타일을 이동 (패딩) */
+      .banner-area {
+        position: relative;
+        padding: 80px;
+        background: url("./images/main_visual_bg.jpg") repeat 0 0/50px;
+      }
+      /* main-visual-figure: 인라인 스타일을 이동 (flex 가운데 정렬) */
+      .main-visual-figure {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+      }
+      /* main-visual-img: 인라인 스타일을 이동 (블록, 사이즈) */
+      .main-visual-img {
+        display: block;
+        width: 984px;
+        max-width: 100%;
+      }
+      /* SNS 버튼 영역 스타일: 상단 우측에 세로 정렬로 배치 */
+      .sns {
+        width: 24px;
+        display: flex; /* Flexbox로 배치 */
+        flex-direction: column; /* 세로 방향 정렬 */
+        position: absolute; /* 절대 위치 지정 */
+        top: 50px; /* 위에서 50px */
+        right: 50px; /* 오른쪽에서 50px */
+      }
     </style>
-</head>
-<body>
-<!-- wrapper 영역: 전체 레이아웃을 감싸는 main 시멘틱 요소로 변경 -->
-<main class="wrapper">
-    <!-- 상단영역 -->
-    <header class="top-area">
+  </head>
+  <body>
+    <!-- wrapper 영역: 전체 레이아웃을 감싸는 main 시멘틱 요소로 변경 -->
+    <main class="wrapper">
+      <!-- 상단영역 -->
+      <header class="top-area">
         <!-- header-inner: 헤더 내부 레이아웃 네이밍 유지하고 nav로 변경 불가, 시멘틱하게 <div>를 <section>으로 변경 -->
         <section class="header-inner">
-            <!-- logo-box: 로고 이미지를 감싸는 부분을 <div>에서 <figure>로 시멘틱하게 변경 -->
-            <figure class="logo-box">
-                <!-- 로고 이미지는 아래 src에 실제 경로로 교체하세요 -->
-                <img src="./images/logo_2023.png" alt="산리오 코리아 로고" style="height:48px;">
-            </figure>
-            <nav class="menu-list">
-                <ul>
-                    <li><a href="#company">company</a></li>
-                    <li><a href="#character">character</a></li>
-                    <li><a href="#place">place</a></li>
-                    <li><a href="#recruit">recruit</a></li>
-                </ul>
-            </nav>
+          <!-- logo-box: 로고 이미지를 감싸는 부분을 <div>에서 <figure>로 시멘틱하게 변경 -->
+          <figure class="logo-box">
+            <!-- 로고 이미지는 아래 src에 실제 경로로 교체하세요 -->
+            <img
+              src="./images/logo_2023.png"
+              alt="산리오 코리아 로고"
+              style="height: 48px"
+            />
+          </figure>
+          <nav class="menu-list">
+            <ul>
+              <li><a href="#company">company</a></li>
+              <li><a href="#character">character</a></li>
+              <li><a href="#place">place</a></li>
+              <li><a href="#recruit">recruit</a></li>
+            </ul>
+          </nav>
         </section>
-    </header>
-    <!-- 메인영역 -->
-    <!-- 인라인 스타일을 html style 인라인 영역으로 이동, 클래스/태그 선택자로 변경 -->
-    <main class="main-area">
+      </header>
+      <!-- 메인영역 -->
+      <!-- 인라인 스타일을 html style 인라인 영역으로 이동, 클래스/태그 선택자로 변경 -->
+      <main class="main-area">
         <!-- 2-1. 배너영역 -->
         <!-- 배경스타일 사용법:
         background : 색 이 반 고 윙/크
         background : 배경색 이미지 반복 고정 위치 -->
-        <section class="banner-area" style="position: relative;">
-            <!-- 박스모델 기본값 5가지 width, height, margin, padding, border -->
-            <!-- 메인 비주얼 이미지를 감싸는 박스를 <div>에서 <figure>로 시멘틱하게 변경 -->
-            <figure class="main-visual-figure">
-                <!-- 메인 비주얼 이미지: 산리오코리아 main_visual_pc_v1.png -->
-                <img class="main-visual-img" src="./images/main_visual_pc_v1.png" alt="산리오코리아 메인 비주얼">
-            </figure>
-            <!-- ctrl+shift+Enter 계행열기 / ctrl+Enter 계행닫기 -->
-            <!-- SNS이동버튼박스 -->  <!-- static만 제외하고 부모값 줄 수 있음 -->
-            <div class="sns" style="display: flex;flex-direction: column;position: absolute;top: 50px;right: 50px;">
-				<a href="https://www.instagram.com/sanrio_kr/" target="_blank"><img src="./images/i_ins_pc_v3.png" alt="instargram"></a>
-				<a href="https://www.youtube.com/c/sanriokorea/featured" target="_blank"><img src="./images/i_you_pc_v3.png" alt="youtube"></a>
-			</div>
+        <section class="banner-area" style="position: relative">
+          <!-- 박스모델 기본값 5가지 width, height, margin, padding, border -->
+          <!-- 메인 비주얼 이미지를 감싸는 박스를 <div>에서 <figure>로 시멘틱하게 변경 -->
+          <figure class="main-visual-figure">
+            <!-- 메인 비주얼 이미지: 산리오코리아 main_visual_pc_v1.png -->
+            <img
+              class="main-visual-img"
+              src="./images/main_visual_pc_v1.png"
+              alt="산리오코리아 메인 비주얼"
+            />
+          </figure>
+          <!-- ctrl+shift+Enter 계행열기 / ctrl+Enter 계행닫기 -->
+          <!-- SNS이동버튼박스 -->
+          <!-- static만 제외하고 부모값 줄 수 있음 -->
+          <div
+            class="sns"
+            style="
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              top: 50px;
+              right: 50px;
+            "
+          >
+            <a href="https://www.instagram.com/sanrio_kr/" target="_blank"
+              ><img src="./images/i_ins_pc_v3.png" alt="instargram"
+            /></a>
+            <a
+              href="https://www.youtube.com/c/sanriokorea/featured"
+              target="_blank"
+              ><img src="./images/i_you_pc_v3.png" alt="youtube"
+            /></a>
+          </div>
+          <!-- 스크롤 유도 애니박스 -->
+          <div class="scroll_btn">
+            <span class="mouse"><span>
+                 </span></span>
+            <p>scroll down</p>
+          </div>
         </section>
         <!-- 2-2. 캐릭터영역 -->
         <section class="character-area">
-            <!-- 캐릭터영역 콘텐츠는 여기서 작성하세요 -->
+          <!-- 캐릭터영역 콘텐츠는 여기서 작성하세요 -->
         </section>
         <!-- 2-3. 컴퍼니영역 -->
         <section class="company-area">
-            <!-- 컴퍼니영역 콘텐츠는 여기서 작성하세요 -->
+          <!-- 컴퍼니영역 콘텐츠는 여기서 작성하세요 -->
         </section>
         <!-- 2-4. 리쿠르트영역 -->
         <section class="recruit-area">
-            <!-- 리쿠르트영역 콘텐츠는 여기서 작성하세요 -->
+          <!-- 리쿠르트영역 콘텐츠는 여기서 작성하세요 -->
         </section>
         <!-- 2-5. 플레이스영역 -->
         <section class="place-area">
-            <!-- 플레이스영역 콘텐츠는 여기서 작성하세요 -->
+          <!-- 플레이스영역 콘텐츠는 여기서 작성하세요 -->
         </section>
         <!-- 2-6. 컨텍어스영역 -->
         <section class="contactus-area">
-            <!-- 컨텍어스영역 콘텐츠는 여기서 작성하세요 -->
+          <!-- 컨텍어스영역 콘텐츠는 여기서 작성하세요 -->
         </section>
-    </main>
+      </main>
 
-    <!-- 하단영역 -->
-    <footer class="bottom-area">
+      <!-- 하단영역 -->
+      <footer class="bottom-area">
         <!-- 하단영역 콘텐츠는 여기서 작성하세요 -->
-    </footer>
-</main>
-</body>
+      </footer>
+    </main>
+  </body>
 </html>
