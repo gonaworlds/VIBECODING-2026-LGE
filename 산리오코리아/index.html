@@ -264,16 +264,18 @@
         100% { opacity: 0; top: 29%; }
       }
 
-      /* 캐릭터박스 */
+      /* 캐릭터영역 박스 */
       .character-area {
-        height: 100vh;
+        /* 카드 4행이 잘리지 않도록 높이 자동 */
+        min-height: 100vh;
       }
 
       /* 공통타이틀박스 */
       .tit-box {
         max-width: 1200px;
         margin: 0 auto;
-        outline: 3px dashed blue;
+        /* outline: 3px dashed blue; */
+        text-transform: uppercase;
       }
 
       /* 타이틀파트 */
@@ -284,14 +286,20 @@
         font-size: 5rem;
         font-weight: normal;
         /* 대문자변환 */
-        text-transform: uppercase;
       }
 
       /* 타이틀박스 하위 버튼박스 */
       .btn-box {
         text-align: center;
         padding: 20px 0;
+        margin-bottom: 50px;
       }
+
+      /* 버튼출력안함 클래스 */
+      .btn-box.off {
+        display: none;
+      }
+
       /* 타이틀 아래 버튼 */
       .btn-view {
         text-decoration: none;
@@ -494,7 +502,8 @@
       <section class="character-area">
         <!-- [대괄호]는 속성이다.
           .tit-box>h2.part-tit+.btn-box>a.btn-view[href="#"] -->
-        <div class="tit-box">
+        <!-- 타이틀박스 -->
+          <div class="tit-box">
           <h2 class="part-tit">character</h2>
           <div class="btn-box">
             <a href="#" class="btn-view">view more</a>
@@ -716,21 +725,49 @@
       <!-- 2-3. 컴퍼니영역 -->
       <section class="company-area">
         <!-- 컴퍼니영역 콘텐츠는 여기서 작성하세요 -->
+         <!-- 타이틀박스 -->
+          <div class="tit-box">
+          <h2 class="part-tit">company</h2>
+          <div class="btn-box off">
+            <a href="#" class="btn-view">view more</a>
+          </div>
+        </div>
       </section>
 
       <!-- 2-4. 리쿠르트영역 -->
       <section class="recruit-area">
         <!-- 리쿠르트영역 콘텐츠는 여기서 작성하세요 -->
+         <!-- 타이틀박스 -->
+          <div class="tit-box">
+          <h2 class="part-tit">recruit</h2>
+          <div class="btn-box off">
+            <a href="#" class="btn-view">view more</a>
+          </div>
+        </div>
       </section>
 
       <!-- 2-5. 플레이스영역 -->
       <section class="place-area">
         <!-- 플레이스영역 콘텐츠는 여기서 작성하세요 -->
+         <!-- 타이틀박스 -->
+          <div class="tit-box">
+          <h2 class="part-tit">place</h2>
+          <div class="btn-box">
+            <a href="#" class="btn-view">view more</a>
+          </div>
+        </div>
       </section>
 
       <!-- 2-6. 컨텍어스영역 -->
       <section class="contactus-area">
         <!-- 컨텍어스영역 콘텐츠는 여기서 작성하세요 -->
+         <!-- 타이틀박스 -->
+          <div class="tit-box">
+          <h2 class="part-tit">contact us</h2>
+          <div class="btn-box">
+            <a href="#" class="btn-view">view more</a>
+          </div>
+        </div>
       </section>
     </main>
 
