@@ -344,6 +344,46 @@
       .btn-view:hover::after {
         content: url(./images/ico_more2.png);
       }
+
+      /* 캐릭터카드 */
+      .character-card {
+        width: 285px;
+        /* height: 285px; 
+        높이값이 없으면 기본값 auto임. 
+        의미는 내용물만큼 높이값이 생성됨. */
+      }
+
+      /* 캐릭터카드 상단 이미지 영역 */
+      .character-card-top {
+        /* position을 준 이유: 자식 요소 중 absolute 기준 */
+        position: relative;
+        /* height: 204px; 
+        내용물만큼 늘어나려면 높이값 주면 안됨! */
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+        align-items: center;
+      }
+      /* 첫번째 이미지 셋팅 — 비율크기 유지역할 */
+      .character-card .character-card-top img:first-child {
+        width: 100%;
+        /* 싸고있는 부모박스 기준 채우기 */
+      }
+      /* 두번째 이미지만 앱솔루트주기 */
+      .character-card .character-card-top img:last-child {
+        position: absolute;
+        /* 나의 부모는 .card-imgs */
+        width: 100%;
+      }
+
+      /* 캐릭터카드 하단 텍스트 영역 */
+      .character-card-bottom {
+        height: 81px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
     </style>
   </head>
   <body>
@@ -416,6 +456,22 @@
           <h2 class="part-tit">character</h2>
           <div class="btn-box">
             <a href="#" class="btn-view">view more</a>
+          </div>
+        </div>
+        <!-- 캐릭터카드 박스 -->
+        <div class="character-card">
+          <!-- 내부 상단박스 -->
+          <div class="character-card-top">
+            <img src="./images/new_main_crt1.png" alt="캐릭터 메인 이미지" />
+            <img
+              src="./images/new_main_crt1_ov.png"
+              alt="캐릭터 메인 오버 이미지"
+            />
+          </div>
+          <!-- 내부 하단박스 -->
+          <div class="character-card-bottom">
+            <h3 class="character-name">Hello Kitty</h3>
+            <h4 class="character-desc">헬로키티</h4>
           </div>
         </div>
       </section>
