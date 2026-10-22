@@ -7,13 +7,46 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <!-- PNG 포맷의 다양한 파비콘 사이즈 지정 -->
     <!-- prettier-ignore-start -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="./images/favicon-48x48.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="./images/android-chrome-192x192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="./images/android-chrome-512x512.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png" />
-    <link rel="shortcut icon" type="image/x-icon" href="http://sanriokorea.co.kr/favicon.png.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="./images/favicon-48x48.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./images/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="./images/android-chrome-512x512.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/apple-touch-icon.png"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="http://sanriokorea.co.kr/favicon.png.ico"
+    />
     <!-- prettier-ignore-end -->
 
     <!-- 인터널 스타일시트(internal style sheet) -->
@@ -291,13 +324,51 @@
       /* 타이틀박스 하위 버튼박스 */
       .btn-box {
         text-align: center;
-        padding: 20px 0;
+        /* padding: 20px 0; */
         margin-bottom: 50px;
       }
 
       /* 버튼출력안함 클래스 */
-      .btn-box.off {
+      .tit-box.off {
         display: none;
+      }
+      /* 타이틀 흰색테마 클래스 */
+      .tit-box.white .part-tit {
+        color: #fff;  
+      }
+      /* 타이틀박스의 로고 컨트롤 */
+      .tit-box.white .logo-box {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      /* 버튼 흰색테마 클래스 */
+      .tit-box.white .btn-view {
+        color: #fff;
+        border: 1px solid #fff;
+      }
+      .tit-box.white .btn-view::after {
+        content: url(./images/ico_more2.png);
+      }
+      .tit-box.white .btn-view:hover {
+        color: #222;
+        background: #fff;
+      }
+      .tit-box.white .btn-view:hover::after {
+        content: url(./images/ico_more1.png);
+      }
+
+      /* 화살표 출력안함 클래스
+      → 부모박스에 simple클래스를 주면 자식 버튼에 가상요소 화살표가 출력안됨 */
+      .btn-box.simple .btn-view::after {
+        display: none;
+      }
+      /* simple클래스버튼 디자인 변경 */
+      .btn-box.simple .btn-view {
+        padding: 11px 22px;
+        font-weight: 300;
+        border: 1px solid #444;
+        border-radius: 30px;
+        font-size: 1.2rem;
       }
 
       /* 타이틀 아래 버튼 */
@@ -305,6 +376,8 @@
         text-decoration: none;
         color: #222;
         font-size: 1.2rem;
+        /* 대문자출력 */
+        text-transform: uppercase;
         display: inline-block;
         margin: 0 auto;
         border: 1px solid #222;
@@ -434,6 +507,69 @@
         font-size: 1.2rem;
         color: #ccc;
       }
+
+      /* 컴퍼니 영역 */
+      .company-area {
+        background: #f5f5f5;
+      }
+
+      /* 리쿠르트 영역 */
+      .recruit-area {
+        /* 배경: 색이반고윙/크 */
+        background: url(./images/tbg_recruit.png) no-repeat center 70px;
+      }
+      /* 플레이스 영역 */
+      .place-area {
+        background: url(./images/bg_shop.jpg) no-repeat center;
+        height: 30vh;
+      }
+
+      /* 컨텍어스 영역 */
+      .contactus-area {
+        background-color: #4a679e;
+      }
+
+      /* 카드파트는 공통모듈임() */
+      /* 카드섹션 래퍼: 최대 1200px, 가로 일정간격 */
+      .card-part-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 40px;
+      }
+      .card-part {
+        /* 플렉스박스 */
+        display: flex;
+        /* 플렉스방향(수직) */
+        flex-direction: column;
+        /* 진행방향의 직각방향 정렬 */
+        align-items: center;
+        /* 사이간격 */
+        gap: 20px;
+        flex: 1;
+      }
+      /* 카드이미지 */
+      .img-box {
+      }
+
+      /* 카드타이틀 */
+      .card-title {
+        font-size: 2rem;
+        font-weight: 400;
+      }
+      /* 카드설명 */
+      .card-desc {
+        text-align: center;
+      }
+      /* 카드설명 span */
+      .card-desc span {
+        display: block;
+        /* 인라인인 span을 블록으로 변경 */
+        font-size: 1.5rem;
+        font-weight: 300;
+      }
     </style>
   </head>
   <body>
@@ -503,7 +639,7 @@
         <!-- [대괄호]는 속성이다.
           .tit-box>h2.part-tit+.btn-box>a.btn-view[href="#"] -->
         <!-- 타이틀박스 -->
-          <div class="tit-box">
+        <div class="tit-box">
           <h2 class="part-tit">character</h2>
           <div class="btn-box">
             <a href="#" class="btn-view">view more</a>
@@ -725,32 +861,140 @@
       <!-- 2-3. 컴퍼니영역 -->
       <section class="company-area">
         <!-- 컴퍼니영역 콘텐츠는 여기서 작성하세요 -->
-         <!-- 타이틀박스 -->
-          <div class="tit-box">
+        <!-- 타이틀박스 -->
+        <div class="tit-box">
           <h2 class="part-tit">company</h2>
           <div class="btn-box off">
             <a href="#" class="btn-view">view more</a>
           </div>
+        </div>
+        <!-- 카드섹션파트 -->
+        <div class="card-part-wrap">
+          <figure class="card-part">
+            <!-- 이미지박스 -->
+            <div class="img-box">
+              <img src="./images/ico_company1.png" alt="회사소개 아이콘" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">회사소개</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>맑고 깨끗한 강가에</span>
+              <span>문화를 쌓아 올리자.</span>
+            </p>
+            <!-- 버튼박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
+          <figure class="card-part">
+            <!-- 이미지박스 -->
+            <div class="img-box">
+              <img src="./images/ico_company3.png" alt="회사연혁 아이콘" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">회사연혁</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>산리오의 히스토리를</span>
+              <span>확인하세요.</span>
+            </p>
+            <!-- 버튼박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
+          <figure class="card-part">
+            <!-- 이미지박스 -->
+            <div class="img-box">
+              <img src="./images/ico_company4.png" alt="사업영역 아이콘" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">사업영역</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>소셜 커뮤니케이션을</span>
+              <span>산리오가 시작합니다.</span>
+            </p>
+            <!-- 버튼박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
         </div>
       </section>
 
       <!-- 2-4. 리쿠르트영역 -->
       <section class="recruit-area">
         <!-- 리쿠르트영역 콘텐츠는 여기서 작성하세요 -->
-         <!-- 타이틀박스 -->
-          <div class="tit-box">
+        <!-- 타이틀박스 -->
+        <div class="tit-box">
           <h2 class="part-tit">recruit</h2>
           <div class="btn-box off">
             <a href="#" class="btn-view">view more</a>
           </div>
+        </div>
+        <!-- 카드섹션파트 -->
+        <div class="card-part-wrap">
+          <figure class="card-part">
+            <!-- 이미지박스 -->
+            <div class="img-box">
+              <img src="./images/ico_recruit1.png" alt="채용공고 아이콘" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">채용공고</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>산리오코리아에서</span>
+              <span>인재를 찾습니다</span>
+            </p>
+            <!-- 버튼박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
+          <figure class="card-part">
+            <!-- 이미지박스 -->
+            <div class="img-box">
+              <img src="./images/ico_recruit2.png" alt="직무소개 아이콘" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">직무소개</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>산리오코리아에서는</span>
+              <span>어떤 일을 할까요?</span>
+            </p>
+            <!-- 버튼박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
+          <figure class="card-part">
+            <!-- 이미지박스 -->
+            <div class="img-box">
+              <img src="./images/ico_recruit3.png" alt="복리후생 아이콘" />
+            </div>
+            <!-- 타이틀 -->
+            <h3 class="card-title">복리후생</h3>
+            <!-- 내용 -->
+            <p class="card-desc">
+              <span>산리오코리아에서</span>
+              <span>누릴 수 있는것!</span>
+            </p>
+            <!-- 버튼박스 -->
+            <div class="btn-box simple">
+              <a href="#" class="btn-view">more</a>
+            </div>
+          </figure>
         </div>
       </section>
 
       <!-- 2-5. 플레이스영역 -->
       <section class="place-area">
         <!-- 플레이스영역 콘텐츠는 여기서 작성하세요 -->
-         <!-- 타이틀박스 -->
-          <div class="tit-box">
+        <!-- 타이틀박스 -->
+        <div class="tit-box">
           <h2 class="part-tit">place</h2>
           <div class="btn-box">
             <a href="#" class="btn-view">view more</a>
@@ -761,8 +1005,12 @@
       <!-- 2-6. 컨텍어스영역 -->
       <section class="contactus-area">
         <!-- 컨텍어스영역 콘텐츠는 여기서 작성하세요 -->
-         <!-- 타이틀박스 -->
-          <div class="tit-box">
+        <!-- 타이틀박스 -->
+        <div class="tit-box white">
+          <!-- 로고박스 -->
+          <div class="logo-box">
+            <img src="./images/logo_w.png" alt="화이트로고" />
+          </div>
           <h2 class="part-tit">contact us</h2>
           <div class="btn-box">
             <a href="#" class="btn-view">view more</a>
