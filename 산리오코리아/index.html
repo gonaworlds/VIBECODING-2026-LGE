@@ -570,6 +570,59 @@
         font-size: 1.5rem;
         font-weight: 300;
       }
+
+      /* 컨텍어스 지도/회사정보 박스 */
+      .contact-info-box {
+        width: 1200px;
+        max-width: 100%;
+        height: 350px;
+        margin: 0 auto;
+        display: flex;
+        border-radius: 20px;
+        overflow: hidden; /* 자식 요소가 둥근 모서리를 벗어나지 않도록 */
+        background: #fff;
+      }
+      /* 키티자동차 이미지 */
+      #kitty-car{
+        width: 207px;
+        height: 240px;
+      }
+      
+      /* 왼쪽 지도 */
+      .contact-map {
+        flex: 0 0 50%;
+        height: 100%;
+      }
+      .contact-map iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      /* 오른쪽 회사정보 */
+      .contact-info {
+        flex: 0 0 50%;
+        height: 100%;
+        padding: 0 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        color: #222;
+      }
+      .contact-info h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .contact-info h4 {
+        font-size: 1.4rem;
+        color: #555;
+      }
+      .contact-info h5 {
+        font-size: 1.4rem;
+        color: #222;
+      }
     </style>
   </head>
   <body>
@@ -1013,7 +1066,31 @@
           </div>
           <h2 class="part-tit">contact us</h2>
           <div class="btn-box">
-            <a href="#" class="btn-view">view more</a>
+            <a href="#" class="btn-view">view detail</a>
+          </div>
+        </div>
+        <!-- 지도 + 회사정보 박스 -->
+        <div class="contact-info-box">
+          <!-- 왼쪽: 구글맵 -->
+          <div class="contact-map">
+            <iframe
+              src="https://www.google.com/maps?q=%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%ED%85%8C%ED%97%A4%EB%9E%80%EB%A1%9C%20509&output=embed"
+              title="산리오코리아 위치 지도"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <!-- 오른쪽: 회사정보 -->
+          <div class="contact-info">
+            <h3>서울시 강남구 테헤란로 509, 4층 (삼성동, 엔씨타워1)</h3>
+            <h4>509, Teheranro, Gangnam-gu, Seoul</h4>
+            <h4>(4th floor, Samsung-dong, NC Tower 1)</h4>
+            <h5>M : webmaster@sanriokorea.co.kr</h5>
+            <h5>T : +82 (0) 2 543 3810</h5>
+            <h5>F : +82 (0) 2 543 2904</h5>
+            <!-- 키티이미지 -->
+             <img id="kitty-car" src="./images/contact_img.png" alt="키티자동차">
           </div>
         </div>
       </section>
