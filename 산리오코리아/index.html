@@ -334,7 +334,7 @@
       }
       /* 타이틀 흰색테마 클래스 */
       .tit-box.white .part-tit {
-        color: #fff;  
+        color: #fff;
       }
       /* 타이틀박스의 로고 컨트롤 */
       .tit-box.white .logo-box {
@@ -572,26 +572,36 @@
       }
 
       /* 컨텍어스 지도/회사정보 박스 */
-      .contact-info-box {
+      .contact-box {
         width: 1200px;
         max-width: 100%;
         height: 350px;
         margin: 0 auto;
         display: flex;
         border-radius: 20px;
-        overflow: hidden; /* 자식 요소가 둥근 모서리를 벗어나지 않도록 */
+        /* overflow: hidden 제거: 키티 이미지가 박스 바깥으로 보이도록 함 */
         background: #fff;
       }
       /* 키티자동차 이미지 */
-      #kitty-car{
+      #kitty-car {
+        position: absolute; /* 부모(.contact-info) 기준 배치 */
+        right: 0;
+        bottom: 0;
         width: 207px;
         height: 240px;
+        /* 자기 높이의 10%만큼 아래로 (박스 밖으로 나와도 보임) */
+        /* transform: translate(가로이동, 세로이동) */
+        transform: translate(-10%, 25%); /* 자기 높이의 10%만큼 아래로 */
+        /* translate: -10% 25%; */
+        /* 다른 방법? translate: 가로이동 세로이동 */
       }
-      
+
       /* 왼쪽 지도 */
       .contact-map {
         flex: 0 0 50%;
         height: 100%;
+        border-radius: 20px 0 0 20px; /* 왼쪽 모서리만 둥글게 (지도 클리핑) */
+        overflow: hidden;
       }
       .contact-map iframe {
         display: block;
@@ -601,6 +611,7 @@
       }
       /* 오른쪽 회사정보 */
       .contact-info {
+        position: relative; /* #kitty-car의 absolute 기준 */
         flex: 0 0 50%;
         height: 100%;
         padding: 0 40px;
@@ -609,6 +620,7 @@
         justify-content: center;
         gap: 10px;
         color: #222;
+        box-sizing: border-box;
       }
       .contact-info h3 {
         font-size: 2rem;
@@ -622,6 +634,33 @@
       .contact-info h5 {
         font-size: 1.4rem;
         color: #222;
+      }
+      /* 하단영역 */
+      .bottom-area {
+        background-color: #222;
+        padding: 50px;
+      }
+      /* 하단속박스 */
+      .bottom-inner {
+        /* 플렉스박스 */
+        display: flex;
+        /* 진행방향정렬: 사이간격 일정하게 */
+        justify-content: space-between;
+        /* 진행방향의 수직정렬: 중간 */
+        align-items: center;
+      }
+      /* 하단속박스 카피라이트 이미지 */
+      .bottom-inner img {
+        height: 13px;
+      }
+      /* 하단속박스 버튼 */
+      .bottom-inner .btn-view {
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+      }
+      .bottom-inner .btn-box {
+        margin-bottom: 0;
       }
     </style>
   </head>
@@ -1070,7 +1109,7 @@
           </div>
         </div>
         <!-- 지도 + 회사정보 박스 -->
-        <div class="contact-info-box">
+        <div class="contact-box">
           <!-- 왼쪽: 구글맵 -->
           <div class="contact-map">
             <iframe
@@ -1090,7 +1129,11 @@
             <h5>T : +82 (0) 2 543 3810</h5>
             <h5>F : +82 (0) 2 543 2904</h5>
             <!-- 키티이미지 -->
-             <img id="kitty-car" src="./images/contact_img.png" alt="키티자동차">
+            <img
+              id="kitty-car"
+              src="./images/contact_img.png"
+              alt="키티자동차"
+            />
           </div>
         </div>
       </section>
@@ -1098,7 +1141,15 @@
 
     <!-- 하단영역 -->
     <footer class="bottom-area">
-      <!-- 하단영역 콘텐츠는 여기서 작성하세요 -->
+      <!-- 하단영역 내용 -->
+      <div class="bottom-inner">
+        <img src="./images/copyright_2023_02_v2.png" alt="산리오카피라이트" />
+        <!-- 개인벙보버튼 -->
+        <div class="btn-box simple">
+          <a href="#" class="btn-view">개인정보처리방침</a>
+        </div>
+        <!-- 카피라잇 이미지 -->
+      </div>
     </footer>
   </body>
 </html>
