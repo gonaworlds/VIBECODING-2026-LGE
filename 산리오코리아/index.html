@@ -2,7 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>산리오 코리아</title>
+    <title>경은's 산리오 코리아</title>
+    <!-- 미디어쿼리를 위한 뷰포트 필수!!!
+     줄임말 meta:vp -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 기본 favicon.ico 지정 (대부분의 브라우저에서 지원) -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <!-- PNG 포맷의 다양한 파비콘 사이즈 지정 -->
@@ -159,15 +162,25 @@
         justify-content: space-between; /* 좌우 끝에 요소 배치 */
         align-items: center; /* 수직 중앙 정렬 */
         height: 80px; /* 높이 80px */
-        padding: 0 24px; /* 좌우 패딩 24px */
+        padding: 0 20px; /* 좌우 패딩 20px */
+      }
+      /* 상단로고박스 */
+      h1.logo-box {
+        width: 10%;
+      }
+      h1.logo-box img {
+        min-width: 100%;
       }
 
-      .logo-box {
-        flex: 0 0 auto; /* 크기가 고정된 flex 아이템 */
+      /* 1024px 이하 미디어쿼리 — 시작*/
+      @media screen and (max-width: 1024px) {
+        /* 기존 선택자와 동일하게 사용함! */
+        h1.logo-box {
+          width: 30%;
+        }
       }
-      .logo-box img {
-        height: 56px; /* 로고 이미지 높이 고정 */
-      }
+      /* 1024px 이하 미디어쿼리 — 종료*/
+
       /* menu-list ul: 메뉴 리스트 스타일 */
       .menu-list ul {
         list-style: none; /* 기본 리스트 스타일 제거 */
@@ -430,7 +443,7 @@
         높이값이 없으면 기본값 auto임. 
         의미는 내용물만큼 높이값이 생성됨. */
         border: 1px solid #ddd;
-        border-radius: 20px;
+        border-radius: 30px;
         overflow: hidden;
         /* 박스그림자
         box-shadow: inset hoff voff blur spread #000;
@@ -442,6 +455,20 @@
         background: #ffffff00;
         display: inline-block;
       }
+
+      /* 800px 이하 미디어쿼리 — 시작 */
+      @media screen and (max-width: 800px) {
+        /* 캐릭터 영역 타이틀: 50px(5rem) → 32px(3.2rem) */
+        .character-area .tit-box .part-tit {
+          font-size: 3.2rem;
+        }
+
+        /* 캐릭터카드: 4열 → 2열 */
+        .character-card {
+          width: calc(50% - 10px);
+        }
+      }
+      /* 800px 이하 미디어쿼리 — 종료 */
 
       /* 캐릭터카드 상단 이미지 영역 */
       .character-card-top {
@@ -573,8 +600,8 @@
 
       /* 컨텍어스 지도/회사정보 박스 */
       .contact-box {
-        width: 1200px;
-        max-width: 100%;
+        max-width: 1200px;
+        /* max-width: 100%; */
         height: 350px;
         margin: 0 auto;
         display: flex;
@@ -670,14 +697,10 @@
       <!-- top-inner: 헤더 내부 레이아웃 네이밍 유지하고 nav로 변경 불가, 시멘틱하게 <div>를 <section>으로 변경 -->
       <section class="top-inner">
         <!-- logo-box: 로고 이미지를 감싸는 부분을 <div>에서 <figure>로 시멘틱하게 변경 -->
-        <figure class="logo-box">
+        <h1 class="logo-box">
           <!-- 로고 이미지는 아래 src에 실제 경로로 교체하세요 -->
-          <img
-            src="./images/logo_2023.png"
-            alt="산리오 코리아 로고"
-            style="height: 48px"
-          />
-        </figure>
+          <img src="./images/logo_2023.png" alt="산리오 코리아 로고" />
+        </h1>
         <nav class="menu-list">
           <ul>
             <li><a href="#company">company</a></li>
