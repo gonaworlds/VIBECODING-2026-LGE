@@ -674,13 +674,13 @@
       .bottom-inner .btn-box {
         margin-bottom: 0;
       }
-
+      
       /* =====================================================
-         반응형 미디어쿼리 (PC 기본 CSS는 위에서 그대로 유지)
-         순서: 1199px → 1024px → 800px → 767px → 736px
-         (max-width 큰 값에서 작은 값 순서로 작성해야 덮어쓰기가 정확함)
-         ===================================================== */
-
+      반응형 미디어쿼리 (PC 기본 CSS는 위에서 그대로 유지)
+      순서: 1199px → 1024px → 800px → 767px → 736px
+      (max-width 큰 값에서 작은 값 순서로 작성해야 덮어쓰기가 정확함)
+      ===================================================== */
+      
       /* ---------- 1199px 이하 ---------- */
       @media screen and (max-width: 1199px) {
         /* 1. 공통 컨테이너: 고정 너비 → 가로 꽉 참, 좌우 14px 여백 */
@@ -692,6 +692,7 @@
           margin-left: 14px;
           margin-right: 14px;
         }
+        /* 기존 코드 */
         .top-inner {
           max-width: none;
           width: 100%;
@@ -699,7 +700,14 @@
           box-sizing: border-box;
           height: 100%;
         }
-
+        
+        
+        /* 모바일용 메뉴를 위한 클래스 지정: 트랜지션 넣기 
+    -> mob클래스를 자바스크립트에서 작동시 넣어주면 된다! */
+        .top-area .mob{
+          transition: transform 0.4s ease, visibility 0s 0.4s ;
+        }
+        
         /* 2. 헤더: 높이 100px + 아래 회색 구분선 */
         .top-area {
           position: relative;
@@ -708,7 +716,7 @@
           background: #fff;
           border-bottom: 1px solid #ddd;
         }
-
+        
         /* 햄버거 버튼 표시 (너비 34px) */
         .menu-btn {
           display: block;
@@ -764,10 +772,12 @@
           align-items: center;
           transform: translateX(100%);
           visibility: hidden;
-          transition:
+          /* 트랜지션을 처음부터 주면 메뉴 변경시 회면 한 번 보이므로 처음엔 트랜지션을 주지 않는다. */
+          /* transition:
             transform 0.4s ease,
-            visibility 0.4s;
-        }
+            visibility 0.4s; */
+            }
+
         .menu-open .menu-list {
           transform: translateX(0);
           visibility: visible;
@@ -1602,33 +1612,99 @@
       </div>
     </footer>
 
-    <!-- 햄버거 메뉴 열기/닫기 -->
     <script>
-      (function () {
-        var btn = document.getElementById("menu-btn");
-        var menu = document.getElementById("menu-list");
-        var root = document.body;
-        var header = document.querySelector(".top-area");
+      // 자바스크립트 월드
+      console.log("안녕");
 
-        function setMenu(open) {
-          header.classList.toggle("menu-open", open);
-          root.classList.toggle("menu-open", open);
-          btn.setAttribute("aria-expanded", open ? "true" : "false");
-          btn.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
-        }
+      // document는 전체 문서객체(DOM-Document Object Model)
+      // 점(.)은 객체의 하위 속성으로 들어감
+      // 요소 선택법: querySelector(CSS선택자) 
+      // -> 첫번째 만난 요소 하나만 가져옴
+      // -> 참고로 여러요소선택은 querySelectorAll(CSS선택자) 
 
-        btn.addEventListener("click", function () {
-          setMenu(!header.classList.contains("menu-open"));
-        });
-        // 메뉴 항목을 누르면 패널 닫기
-        menu.addEventListener("click", function (e) {
-          if (e.target.closest("a")) setMenu(false);
-        });
-        // PC 폭으로 돌아가면 패널 상태 초기화
-        window.addEventListener("resize", function () {
-          if (window.innerWidth > 1199) setMenu(false);
-        });
-      })();
+      // 변수(저장주소)
+      let 나야나 = document.querySelector('.top-area') ;
+      // 변수는 따옴표로 싸지 않는 문자다. 
+      // 변수는 let으로 선언한다.
+      // 이퀄(=)은 오른쪽 값이 왼쪽변수에 할당되는 것!
+      // 변수는 왜 쓰나? 재사용!
+      // 데이터는 '' 또는 "" 를 사용한다.
+      console.log('나는 누구인가?', 나야나)
+
+      // 아래의 코드가 바로 실행하지 않고
+      // 호출시에만 실행하도록 하려면? 함수 안에 넣어준다.
+      // 함수 이름을 호출할 때 실행됨!
+
+      // 원래 함수(전통)
+      // function 함수명(전달변수){코드}
+      // 화살표 함수가 유행~~!
+      // let 함수담을변수 = (전달변수)=>{코드}
+
+      // const는 상수 또는 함수를 담는 변수선언
+      // 보안상 let보다 const를 함수담을 때 많이 씀.
+
+      // const 나야나함수 = () => {}; "화살표함수"라고 함.
+      const 나야나함수 = (색상)=> {
+        console.log('함수호출! 전달값은?', 색상);
+        // 상단요소의 배경색 바꾸기
+        나야나.style.backgroundColor = 색상
+        나야나.style.rotate = '360deg'
+        나야나.style.transition = '2s ease-in-out'
+      }; ///////////// 나야나함수 /////////////
+
+      // 할당된 화살표함수는 반드시 함수 아래쪽에서 호출해야 함!
+      // 또는 이벤트 발생시엔 상관없음.
+
+      // 함수는 호출시 함수명() -> 소관호 필수
+      // 만약 전달변수가 있아면 값을 써서 보내야 함!
+      // 나야나함수('orange'); ->클릭이벤트 함수 내부로 이동!
+
+      // 최종 요구사항
+      // -> 상단 배너 클릭시 
+      // 상단 메뉴 배경색을 변경하고 상단 메뉴는 360도 회전함. 트랜지션으로 애니메이션 2초간 되게함
+
+      // 대상선정: 
+      // 1. 이벤트 대상: 상단배너(.main-visual-img)
+      let 너를클릭해 = document.querySelector('.main-visual-img');
+      // 2. 변경대상: 상단영역은 이미 위에서 선택.
+      // 3. 이벤트 설정하기: 클릭이벤트
+      // 클릭이벤트는 onclick 속성으로 셋팅!
+      // 클릭시 함수호출은 바로실행 안되게 화살표함수로 표시
+      너를클릭해.onclick = ()=>{
+        // 해당요소에 클릭이벤트가 발생하면 이 구역을 실행함
+        나야나함수('orange');
+      }; ///////// onclick 함수 //////////
+      
+
+
+
+
+      // 햄버거 메뉴 열기/닫기
+      // (function () {
+      //   var btn = document.getElementById("menu-btn");
+      //   var menu = document.getElementById("menu-list");
+      //   var root = document.body;
+      //   var header = document.querySelector(".top-area");
+
+      //   function setMenu(open) {
+      //     header.classList.toggle("menu-open", open);
+      //     root.classList.toggle("menu-open", open);
+      //     btn.setAttribute("aria-expanded", open ? "true" : "false");
+      //     btn.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+      //   }
+
+      //   btn.addEventListener("click", function () {
+      //     setMenu(!header.classList.contains("menu-open"));
+      //   });
+      //   // 메뉴 항목을 누르면 패널 닫기
+      //   menu.addEventListener("click", function (e) {
+      //     if (e.target.closest("a")) setMenu(false);
+      //   });
+      //   // PC 폭으로 돌아가면 패널 상태 초기화
+      //   window.addEventListener("resize", function () {
+      //     if (window.innerWidth > 1199) setMenu(false);
+      //   });
+      // })();
     </script>
   </body>
 </html>
