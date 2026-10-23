@@ -564,7 +564,6 @@
         gap: 20px;
         flex: 1;
       }
-      
 
       /* 카드타이틀 */
       .card-title {
@@ -674,40 +673,33 @@
       .bottom-inner .btn-box {
         margin-bottom: 0;
       }
-      
+
       /* =====================================================
       반응형 미디어쿼리 (PC 기본 CSS는 위에서 그대로 유지)
       순서: 1199px → 1024px → 800px → 767px → 736px
       (max-width 큰 값에서 작은 값 순서로 작성해야 덮어쓰기가 정확함)
       ===================================================== */
-      
+
       /* ---------- 1199px 이하 ---------- */
       @media screen and (max-width: 1199px) {
-        /* 1. 공통 컨테이너: 고정 너비 → 가로 꽉 참, 좌우 14px 여백 */
+                /* 1. 공통 컨테이너: 고정 너비 → 가로 꽉 참, 좌우 20px 여백 */
         .tit-box,
         .card-part-wrap,
         .character-card-wrap,
         .contact-box {
           max-width: none;
-          margin-left: 14px;
-          margin-right: 14px;
+          margin-left: 20px;
+          margin-right: 20px;
         }
         /* 기존 코드 */
         .top-inner {
           max-width: none;
           width: 100%;
-          padding: 0 14px;
+          padding: 0 20px;
           box-sizing: border-box;
           height: 100%;
         }
-        
-        
-        /* 모바일용 메뉴를 위한 클래스 지정: 트랜지션 넣기 
-    -> mob클래스를 자바스크립트에서 작동시 넣어주면 된다! */
-        .top-area .mob{
-          transition: transform 0.4s ease, visibility 0s 0.4s ;
-        }
-        
+
         /* 2. 헤더: 높이 100px + 아래 회색 구분선 */
         .top-area {
           position: relative;
@@ -716,7 +708,7 @@
           background: #fff;
           border-bottom: 1px solid #ddd;
         }
-        
+
         /* 햄버거 버튼 표시 (너비 34px) */
         .menu-btn {
           display: block;
@@ -746,14 +738,14 @@
           top: 22px;
         }
         /* 열림 상태: X 모양 */
-        .menu-open .menu-btn span:nth-child(1) {
+        .top-area.on .menu-btn span:nth-child(1) {
           top: 11px;
           transform: rotate(45deg);
         }
-        .menu-open .menu-btn span:nth-child(2) {
+        .top-area.on .menu-btn span:nth-child(2) {
           opacity: 0;
         }
-        .menu-open .menu-btn span:nth-child(3) {
+        .top-area.on .menu-btn span:nth-child(3) {
           top: 11px;
           transform: rotate(-45deg);
         }
@@ -763,25 +755,41 @@
           position: fixed;
           top: 0;
           left: 0;
-          z-index: 1;
           width: 100%;
           height: 100vh;
           background: #fff;
           display: flex;
-          justify-content: center;
           align-items: center;
-          transform: translateX(100%);
-          visibility: hidden;
+          justify-content: center;
+          z-index: 1;
+          /* 변경내용: 위치이동, 투명도 */
+          translate: 100%;
+          opacity: 0;
+          transition: 0.4s;
+          /* translate속성값은 하나만 쓰면 x축, 두개 x,y축 */
+          /* transform: translateX(100%); */
+          /* visibility와 opacity 투명도 0의 차이는 투명해진 후 요소가 자리하는지 여부. opacity:0는 차지하고, visibility:hidden은 없어짐. */
+          /* visibility: hidden;  */
           /* 트랜지션을 처음부터 주면 메뉴 변경시 회면 한 번 보이므로 처음엔 트랜지션을 주지 않는다. */
           /* transition:
-            transform 0.4s ease,
-            visibility 0.4s; */
-            }
-
-        .menu-open .menu-list {
+          transform 0.4s ease,
+          visibility 0.4s; */
+        }
+        
+        /* 모바일용 메뉴를 위한 클래스 지정: 트랜지션 넣기 
+        -> mob클래스를 자바스크립트에서 작동시 넣어주면 된다! */
+        .top-area.on .menu-list {
+          /* 트렌스폼 보이게 설정 */
+          translate: 0;
+          opacity: 1;
+          
+        }
+        
+        /* .menu-open .menu-list {
           transform: translateX(0);
           visibility: visible;
-        }
+         } */
+
         /* 항목: 세로 쌓임, 가운데 정렬, 대문자, 큰 글자 */
         .menu-list ul {
           flex-direction: column;
@@ -1027,10 +1035,10 @@
           width: 34px;
         }
 
-        /* 메인 비주얼: 좌우 여백 제거, 스크롤 버튼 하단에서 20px */
+                /* 메인 비주얼: 좌우 여백 20px 설정, 스크롤 버튼 하단에서 20px */
         .banner-area {
-          padding-left: 0;
-          padding-right: 0;
+          padding-left: 20px;
+          padding-right: 20px;
         }
         .scroll_btn {
           bottom: 20px;
@@ -1618,18 +1626,18 @@
 
       // document는 전체 문서객체(DOM-Document Object Model)
       // 점(.)은 객체의 하위 속성으로 들어감
-      // 요소 선택법: querySelector(CSS선택자) 
+      // 요소 선택법: querySelector(CSS선택자)
       // -> 첫번째 만난 요소 하나만 가져옴
-      // -> 참고로 여러요소선택은 querySelectorAll(CSS선택자) 
+      // -> 참고로 여러요소선택은 querySelectorAll(CSS선택자)
 
       // 변수(저장주소)
-      let 나야나 = document.querySelector('.top-area') ;
-      // 변수는 따옴표로 싸지 않는 문자다. 
+      let 나야나 = document.querySelector(".top-area");
+      // 변수는 따옴표로 싸지 않는 문자다.
       // 변수는 let으로 선언한다.
       // 이퀄(=)은 오른쪽 값이 왼쪽변수에 할당되는 것!
       // 변수는 왜 쓰나? 재사용!
       // 데이터는 '' 또는 "" 를 사용한다.
-      console.log('나는 누구인가?', 나야나)
+      console.log("나는 누구인가?", 나야나);
 
       // 아래의 코드가 바로 실행하지 않고
       // 호출시에만 실행하도록 하려면? 함수 안에 넣어준다.
@@ -1644,12 +1652,16 @@
       // 보안상 let보다 const를 함수담을 때 많이 씀.
 
       // const 나야나함수 = () => {}; "화살표함수"라고 함.
-      const 나야나함수 = (색상)=> {
-        console.log('함수호출! 전달값은?', 색상);
+      const 나야나함수 = (색상) => {
+        console.log("함수호출! 전달값은?", 색상);
         // 상단요소의 배경색 바꾸기
-        나야나.style.backgroundColor = 색상
-        나야나.style.rotate = '360deg'
-        나야나.style.transition = '2s ease-in-out'
+        나야나.style.backgroundColor = 색상;
+        나야나.style.transition = "2s ease-in-out";
+        // 회전은 로고가 하도록 변경
+        나야나.querySelector(".logo-box").style.rotate = "360deg";
+        // 로고 트렌지션: 2초 후 1초간 ease-in-out
+        나야나.querySelector(".logo-box").style.transition =
+          "1s ease-in-out 2s";
       }; ///////////// 나야나함수 /////////////
 
       // 할당된 화살표함수는 반드시 함수 아래쪽에서 호출해야 함!
@@ -1660,21 +1672,48 @@
       // 나야나함수('orange'); ->클릭이벤트 함수 내부로 이동!
 
       // 최종 요구사항
-      // -> 상단 배너 클릭시 
+      // -> 상단 배너 클릭시
       // 상단 메뉴 배경색을 변경하고 상단 메뉴는 360도 회전함. 트랜지션으로 애니메이션 2초간 되게함
 
-      // 대상선정: 
+      // 대상선정:
       // 1. 이벤트 대상: 상단배너(.main-visual-img)
-      let 너를클릭해 = document.querySelector('.main-visual-img');
+      let 너를클릭해 = document.querySelector(".main-visual-img");
       // 2. 변경대상: 상단영역은 이미 위에서 선택.
       // 3. 이벤트 설정하기: 클릭이벤트
       // 클릭이벤트는 onclick 속성으로 셋팅!
       // 클릭시 함수호출은 바로실행 안되게 화살표함수로 표시
-      너를클릭해.onclick = ()=>{
+      너를클릭해.onclick = () => {
         // 해당요소에 클릭이벤트가 발생하면 이 구역을 실행함
-        나야나함수('orange');
+        나야나함수("orange");
       }; ///////// onclick 함수 //////////
-      
+
+
+      //////////// 햄버거버튼 클릭시 메뉴 보이기 숨기기 ///////////
+       // 1. 대상선정
+       // 1-1. 이벤트 대상 : 햄버거버튼(.menu-btn)
+       let 햄버거 = document.querySelector('.menu-btn');
+       
+       //  1-2. 변경대상 : 상단영역(.top-area)
+       let 상단박스 = document.querySelector('.top-area');
+
+       // 2. 이벤트 함수 만들기
+       // 햄버거 클릭시 상단박스 클래스 on 넣기
+       햄버거.onclick = () => {
+         상단박스.classList.toggle('on')
+         // classlist객체는 클래스를 넣고 빼는 기능을 가짐
+         // add(클래스명) - 클래스넣기
+         // remove(클래스명) - 클래스빼기
+         // toggle(클래스명) - 클래스넣기/빼기 전환
+       }; ///////// 클릭함수 //////////
+       
+       console.log('선택확인:',햄버거);
+
+
+
+
+
+
+
 
 
 
